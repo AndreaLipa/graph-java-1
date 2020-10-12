@@ -27,6 +27,8 @@ public class Vertex {
     }
 
     public String toString() {
-        return "Vertex={label={" + label + "},edges={" + edges + "}}";
+        //return "Vertex={label={" + label + "},edges={" + edges + "}}";
+        //return " "+label+" "+edges+" ";
+        return " " + label + " " + edges;
     }
 }

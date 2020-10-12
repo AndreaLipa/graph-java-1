@@ -33,7 +33,8 @@ public class Edge {
         this.weight = weight;
     }
 
-    public String toString() {
-        return "Edge={v1={" + v1.getLabel() + "},v2={" + v2.getLabel() + "},weight={" + weight + "}}";
+    public String toStringV12() {
+        //return "Edge={v1={" + v1.getLabel() + "},v2={" + v2.getLabel() + "},weight={" + weight + "}}";
+        return " "+v1.getLabel()+" "+v2.getLabel();
     }
 }

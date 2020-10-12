@@ -1,7 +1,7 @@
 size=3
 0=La Paz
-1=Cocha
-2=Santa
+1=Cochabamba
+2=Santa Cruz
 ;
 (0, 1 ,52.25 )
 (0,2,5000)

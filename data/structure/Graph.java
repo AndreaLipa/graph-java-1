@@ -52,11 +52,15 @@ public class Graph {
         }
     }
 
-    public void printGraph() {
-        for (int i = 0; i < vertexs.length; i++) {
+    public void printGraph() {  
+        ListLinked<Edge> eLinked = new ListLinked<>();
+        for(int i = 0; i < vertexs.length; i++){
             //Vertex vertex = vertexs[i];
-            //ListLinked<Edge> eLinked = vertex.getEdges();
-            
+            System.out.println("\n\nVERTEX: "+vertexs[i].getLabel()+" -> ");
+            eLinked = vertexs[i].getEdges();
+            for(int j = 0; j < eLinked.size(); j++){
+                System.out.print("\t"+eLinked.getHead().getData().getV2().getLabel());
+            }
         }
     }
 
@@ -90,12 +94,12 @@ public class Graph {
                     addVertex(vertex);
                     vertexs[Integer.parseInt(matcher.group(1))] = vertex;
                 }
-                // System.out.println(line);
+                //System.out.println(line);
             }
 
             // Obteniendo las lineas de informacion de aristas
             while (!(line = scanner.nextLine()).equals(";")) {
-                pattern = Pattern.compile("\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)");
+                pattern = Pattern.compile("\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*,\\s*(\\d+.\\d+)\\s*\\)"); //CAMBIO PARA DECIMALES
                 matcher = pattern.matcher(line);
                 if (matcher.find()) {
                     int posV1 = Integer.parseInt(matcher.group(1));
@@ -105,6 +109,7 @@ public class Graph {
                     double weight = Double.parseDouble(matcher.group(3));
                     addEdge(v1, v2, weight);
                 }
+                //System.out.println(line);
             }
 
             scanner.close();
@@ -117,6 +122,7 @@ public class Graph {
          */
 
     }
+
 
     public static void main(String[] args) {
         Graph graph = new Graph(false);
@@ -136,5 +142,6 @@ public class Graph {
         graph.addVertex(Riberalta);
 
         graph.readFileInput("bolivia.txt");
+        graph.printGraph();
     }
 }
